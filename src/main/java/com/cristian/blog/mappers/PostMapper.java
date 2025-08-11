@@ -1,5 +1,7 @@
 package com.cristian.blog.mappers;
 
+import com.cristian.blog.domain.CreatePostRequest;
+import com.cristian.blog.domain.dtos.CreatePostRequestDto;
 import com.cristian.blog.domain.dtos.PostDto;
 import com.cristian.blog.domain.entities.Post;
 import org.mapstruct.Mapper;
@@ -13,4 +15,6 @@ public interface PostMapper {
     @Mapping(target = "category", source = "category")
     @Mapping(target = "tags", source = "tags")
     PostDto toDto(Post post);
+
+    CreatePostRequest toCreatePostRequest(CreatePostRequestDto dto);
 }
