@@ -1,8 +1,10 @@
 package com.cristian.blog.mappers;
 
 import com.cristian.blog.domain.CreatePostRequest;
+import com.cristian.blog.domain.UpdatePostRequest;
 import com.cristian.blog.domain.dtos.CreatePostRequestDto;
 import com.cristian.blog.domain.dtos.PostDto;
+import com.cristian.blog.domain.dtos.UpdatePostRequestDto;
 import com.cristian.blog.domain.entities.Post;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,4 +19,5 @@ public interface PostMapper {
     PostDto toDto(Post post);
 
     CreatePostRequest toCreatePostRequest(CreatePostRequestDto dto);
+    UpdatePostRequest toUpdatePostRequest(UpdatePostRequestDto dto);
 }
