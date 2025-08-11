@@ -4,6 +4,7 @@ import com.cristian.blog.domain.PostStatus;
 import com.cristian.blog.domain.entities.Category;
 import com.cristian.blog.domain.entities.Post;
 import com.cristian.blog.domain.entities.Tag;
+import com.cristian.blog.domain.entities.User;
 import com.cristian.blog.repositories.PostRepository;
 import com.cristian.blog.services.CategoryService;
 import com.cristian.blog.services.PostService;
@@ -55,5 +56,10 @@ public class PostServiceImpl implements PostService {
         return postRepository.findAllByStatus(
                 PostStatus.PUBLISHED
         );
+    }
+
+    @Override
+    public List<Post> getDraftPosts(User user) {
+        return postRepository.findAllByAuthorAndStatus(user, PostStatus.DRAFT);
     }
 }
