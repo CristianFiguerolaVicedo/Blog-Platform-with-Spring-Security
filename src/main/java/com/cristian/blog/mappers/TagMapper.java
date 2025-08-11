@@ -1,7 +1,7 @@
 package com.cristian.blog.mappers;
 
 import com.cristian.blog.domain.PostStatus;
-import com.cristian.blog.domain.dtos.TagResponse;
+import com.cristian.blog.domain.dtos.TagDto;
 import com.cristian.blog.domain.entities.Post;
 import com.cristian.blog.domain.entities.Tag;
 import org.mapstruct.Mapper;
@@ -14,7 +14,7 @@ import java.util.Set;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface TagMapper {
     @Mapping(target = "postCount", source = "posts", qualifiedByName = "calculatePostCount")
-    TagResponse toTagResponse(Tag tag);
+    TagDto toTagResponse(Tag tag);
 
     @Named("calculatePostCount")
     default Integer calculatePostCount(Set<Post> posts) {
